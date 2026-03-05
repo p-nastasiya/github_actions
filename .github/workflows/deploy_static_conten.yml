@@ -40,10 +40,3 @@ jobs: # Секция jobs определяет этапы процесса
           path: './dist' # Путь до папки, где лежит сборка, в нашем случае Webpack собирает в папку dist, данные берутся из предыдущего шага Build
       - name: Deploy to GitHub Pages # Публикация артефактов на GitHub Pages с помощью готового actions
         uses: actions/deploy-pages@v4
-    
-    notification:
-      needs: deploy # указывает зависимость от другой задачи с именем deploy 
-        runs-on: ubuntu-latest
-      steps:
-        - name: Send message
-          run: # тут должна быть команда для отправки сообщения
